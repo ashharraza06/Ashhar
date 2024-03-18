@@ -1,0 +1,229 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "vencomplaint",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.13.0",
+      "toolsId": "263020d8-1412-4291-afbe-f644a0eb3d15"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/my/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "vendorinfo-Display": {
+          "semanticObject": "vendorinfo",
+          "action": "Display",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.121.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "vencomplaint.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "vendorList",
+          "target": "vendorList"
+        },
+        {
+          "pattern": "vendor({key}):?query:",
+          "name": "vendorObjectPage",
+          "target": "vendorObjectPage"
+        },
+        {
+          "pattern": "vendor({key})/poheaders({key2}):?query:",
+          "name": "vendor_poheadersObjectPage",
+          "target": "vendor_poheadersObjectPage"
+        }
+      ],
+      "targets": {
+        "vendorList": {
+          "type": "Component",
+          "id": "vendorList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/vendor",
+              "variantManagement": "Page",
+              "navigation": {
+                "vendor": {
+                  "detail": {
+                    "route": "vendorObjectPage"
+                  }
+                }
+              },
+              "initialLoad": "Enabled"
+            }
+          }
+        },
+        "vendorObjectPage": {
+          "type": "Component",
+          "id": "vendorObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/vendor",
+              "navigation": {
+                "poheaders": {
+                  "detail": {
+                    "route": "vendor_poheadersObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "vendor_poheadersObjectPage": {
+          "type": "Component",
+          "id": "vendor_poheadersObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/vendor/poheaders",
+              "navigation": {},
+              "content": {
+                "body": {
+                  "sections": {
+                    "Complain": {
+                      "template": "vencomplaint.ext.fragment.Complain",
+                      "title": "Complain",
+                      "type": "XMLFragment"
+                    },
+                    "Attachement": {
+                      "template": "vencomplaint.ext.fragment.Attachement",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Complain"
+                      },
+                      "title": "Attachments",
+                      "type": "XMLFragment"
+                    }
+                  }
+                },
+                "footer": {
+                  "actions": {
+                    "Sumbit": {
+                      "press": "vencomplaint.ext.controller.Submit.submit",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Sumbit"
+                    },
+                    "cancel": {
+                      "press": "vencomplaint.ext.controller.Submit.cancel",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Cancel",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Sumbit"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ObjectPage.ObjectPageController#vencomplaint::vendor_poheadersObjectPage": {
+            "controllerName": "vencomplaint.ext.controller.Complaint"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "vendorcomplain"
+  }
+}
