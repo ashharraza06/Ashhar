@@ -22,10 +22,12 @@
         "undeploy": "cf undeploy ash_ven --delete-services --delete-service-keys --delete-service-brokers",
         "build": "rimraf resources mta_archives && mbt build --mtar archive",
         "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-        "watch-vencomplaint": "cds watch --open vencomplaint/webapp/index.html?sap-ui-xx-viewCache=false"
+        "watch-vencomplaint": "cds watch --open vencomplaint/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-approval": "cds watch --open approval/webapp/index.html?sap-ui-xx-viewCache=false"
     },
     "sapux": [
         "app/project1",
-        "app/vencomplaint"
+        "app/vencomplaint",
+        "app/approval"
     ]
 }

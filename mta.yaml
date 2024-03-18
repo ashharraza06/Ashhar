@@ -42,6 +42,10 @@ modules:
       - vencomplaint.zip
       name: vencomplaint
       target-path: resources/
+    - artifacts:
+      - approval.zip
+      name: approval
+      target-path: resources/
 - name: project1
   type: html5
   path: app/project1
@@ -85,6 +89,16 @@ modules:
 - name: vencomplaint
   type: html5
   path: app/vencomplaint
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: approval
+  type: html5
+  path: app/approval
   build-parameters:
     build-result: dist
     builder: custom

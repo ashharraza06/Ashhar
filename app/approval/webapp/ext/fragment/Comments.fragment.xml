@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox id= "vv">
+		<HBox id= "hh">
+			<TextArea id="ta" rows="8" width="70vw"/>
+			<Button id="comm" core:require="{ handler: 'approval/ext/fragment/Comments'}" text="Comments" press="handler.onPress" />
+		</HBox>
+		
+	</VBox>
+</core:FragmentDefinition>
