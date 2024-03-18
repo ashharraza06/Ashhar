@@ -39,19 +39,19 @@ sap.ui.define([
                 return uniqueId;
             }
             debugger
-            var oTimelineItem = new sap.suite.ui.commons.TimelineItem(("thisuniqid1"+generateUniqueId()),{
-                dateTime: "12/3/34",
-                // title: "demo title1",
-                userNameClickable: false,
-                // userNameClicked: "onUserNameClick",
-                // select: "onPressItems",
-                // userPicture: "Photo",
-                text: 'comments',
-                userName: "Comments"
-            });
+            // var oTimelineItem = new sap.suite.ui.commons.TimelineItem(("thisuniqid1"+generateUniqueId()),{
+            //     dateTime: "12/3/34",
+            //     // title: "demo title1",
+            //     userNameClickable: false,
+            //     // userNameClicked: "onUserNameClick",
+            //     // select: "onPressItems",
+            //     // userPicture: "Photo",
+            //     text: 'comments',
+            //     userName: "Comments"
+            // });
           
             
-            cdialog.addContent(oTimelineItem);
+            // cdialog.addContent(oTimelineItem);
     
             cdialog.open(); // Open the dialog
 debugger
