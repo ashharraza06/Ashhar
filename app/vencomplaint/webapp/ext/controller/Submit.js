@@ -36,7 +36,7 @@ sap.ui.define([
                 }
             });
 
-            var status = "Sumbitted";
+            var status = "Submitted";
             var randomNumber = Math.floor(Math.random() * 1000000);
 
             // // Get the current timestamp
