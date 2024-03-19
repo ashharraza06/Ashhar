@@ -50,3 +50,7 @@ entity files : cuid, managed {
     filetocom   : Association to one complaint
                       on filetocom.complainno = complaintno;
 }
+entity comments: cuid{
+    complainno: String;
+    comments: String;
+}

@@ -33,32 +33,40 @@ annotate service.complains with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Value : complain_about,
-                Label : 'complain_about',
-            },{
-                $Type : 'UI.DataField',
                 Value : complainno,
-                Label : 'complainno',
+                Label : 'Complaint No',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : pono,
+                Label : 'PO Number',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : pannum,
+                Label : 'Pan Number',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : vencode,
+                Label : 'Vendor Code',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : complain_about,
+                Label : 'Complain About',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : status,
+                Label : 'Status',
             },{
                 $Type : 'UI.DataField',
                 Value : desc,
-                Label : 'desc',
-            },{
-                $Type : 'UI.DataField',
-                Value : pannum,
-                Label : 'pannum',
-            },{
-                $Type : 'UI.DataField',
-                Value : pono,
-                Label : 'pono',
-            },{
-                $Type : 'UI.DataField',
-                Value : status,
-                Label : 'status',
-            },{
-                $Type : 'UI.DataField',
-                Value : vencode,
-                Label : 'vencode',
+                Label : 'Complain Description',
             },],
     }
 );
+annotate service.complains with {
+    desc @UI.MultiLineText : true
+};

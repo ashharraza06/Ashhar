@@ -1,0 +1,15 @@
+.commentvbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.commentbtn {
+    align-self: flex-end;
+    margin-bottom: 10px; /* Optional: Add margin to create space between button and textarea */
+}
+
+.commenthbox {
+    width: 90vw;
+}

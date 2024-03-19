@@ -6,7 +6,7 @@ sap.ui.define([
 
     return {
         onPress: function(oEvent) {
-            MessageToast.show("Custom handler invoked.");
+            // MessageToast.show("Custom handler invoked.");
             debugger
             var cdialog = new sap.m.Dialog({
                 title: "Comments",
@@ -39,19 +39,20 @@ sap.ui.define([
                 return uniqueId;
             }
             debugger
-            // var oTimelineItem = new sap.suite.ui.commons.TimelineItem(("thisuniqid1"+generateUniqueId()),{
-            //     dateTime: "12/3/34",
-            //     // title: "demo title1",
-            //     userNameClickable: false,
-            //     // userNameClicked: "onUserNameClick",
-            //     // select: "onPressItems",
-            //     // userPicture: "Photo",
-            //     text: 'comments',
-            //     userName: "Comments"
-            // });
+            var oTimelineItem = new sap.suite.ui.commons.TimelineItem("thisuniqid1" + generateUniqueId(), {
+                dateTime: "12/3/34",
+                // title: "demo title1",
+                userNameClickable: false,
+                // userNameClicked: "onUserNameClick",
+                // select: "onPressItems",
+                // userPicture: "Photo",
+                text: 'Demo Comments',
+                userName: "Comments"
+            });
+            
           
             
-            // cdialog.addContent(oTimelineItem);
+            cdialog.addContent(oTimelineItem);
     
             cdialog.open(); // Open the dialog
 debugger

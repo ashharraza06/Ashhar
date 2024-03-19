@@ -50,7 +50,8 @@
                 "sap.m": {},
                 "sap.ui.core": {},
                 "sap.ushell": {},
-                "sap.fe.templates": {}
+                "sap.fe.templates": {},
+                "sap.suite.ui.commons": {}
             }
         },
         "contentDensities": {
@@ -80,7 +81,11 @@
             }
         },
         "resources": {
-            "css": []
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
         },
         "routing": {
             "routes": [
@@ -110,7 +115,8 @@
                                         "route": "complainsObjectPage"
                                     }
                                 }
-                            }
+                            },
+                            "initialLoad": "Enabled"
                         }
                     }
                 },
@@ -133,11 +139,29 @@
                                             },
                                             "title": "Comments",
                                             "type": "XMLFragment"
+                                        },
+                                        "Attachements": {
+                                            "template": "approval.ext.fragment.Attachements",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Comments"
+                                            },
+                                            "title": "Attachments",
+                                            "type": "XMLFragment"
                                         }
                                     }
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.fe.templates.ObjectPage.ObjectPageController#approval::complainsObjectPage": {
+                        "controllerName": "approval.ext.controller.Complainsobjpage"
                     }
                 }
             }
