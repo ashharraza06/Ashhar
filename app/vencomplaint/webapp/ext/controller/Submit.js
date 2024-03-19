@@ -51,7 +51,7 @@ sap.ui.define([
                 complainno: compno,
                 pono: ponumber,
                 vencode: vendercode,
-                pannum : pan,
+                pannum: pan,
                 status: status,
                 complain_about: comp,
                 desc: desc
@@ -64,7 +64,7 @@ sap.ui.define([
                 var url = '/odata/v4/my/files/' + fid;
                 $.ajax({
                     url: url,
-                    type: 'PUT',
+                    type: 'PATCH',
                     contentType: 'application/json',
                     data: filedata,
                     success: function (data) {
@@ -97,16 +97,25 @@ sap.ui.define([
                     MessageToast.show("Unexpected Error Occurred.");
                 }
             })
+            window.history.go(-2);
         },
         cancel: function () {
             // MessageToast.show("Custom handler invoked.");
-            history.back();
+            // history.back();
+            sap.ui.getCore().byId("vencomplaint::vendor_poheadersObjectPage--fe::CustomSubSection::Complain-innerGrid")
+                .mAggregations.content[0]
+                .mAggregations.content
+                .mAggregations.items[7]
+                .setValue("");
+
+            window.history.go(-2);
         },
         onAfterItemAdded: function (oEvent) {
             debugger;
             var item = oEvent.getParameter("item");
 
             var _createEntity = function (item) {
+                debugger;
                 var data = {
                     mediaType: item.getMediaType(),
                     fileName: item.getFileName(),

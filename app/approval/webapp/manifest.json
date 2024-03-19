@@ -150,6 +150,36 @@
                                             "type": "XMLFragment"
                                         }
                                     }
+                                },
+                                "footer": {
+                                    "actions": {
+                                        "Resolve": {
+                                            "press": "approval.ext.controller.Resolve.Resolve",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Resolve"
+                                        },
+                                        "FurtherAssign": {
+                                            "press": "approval.ext.controller.FurtherAssign.FurtherAssign",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Further Assign",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Resolve"
+                                            }
+                                        },
+                                        "RevertBack": {
+                                            "press": "approval.ext.controller.RevertBack.RevertBack",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Revert Back",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "FurtherAssign"
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

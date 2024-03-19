@@ -115,6 +115,11 @@
           "pattern": "vendor({key})/poheaders({key2}):?query:",
           "name": "vendor_poheadersObjectPage",
           "target": "vendor_poheadersObjectPage"
+        },
+        {
+          "pattern": "vendor({key})/poheaders({key2})/pototcomp({key3}):?query:",
+          "name": "vendor_poheaders_pototcompObjectPage",
+          "target": "vendor_poheaders_pototcompObjectPage"
         }
       ],
       "targets": {
@@ -162,7 +167,13 @@
           "options": {
             "settings": {
               "contextPath": "/vendor/poheaders",
-              "navigation": {},
+              "navigation": {
+                "pototcomp": {
+                  "detail": {
+                    "route": "vendor_poheaders_pototcompObjectPage"
+                  }
+                }
+              },
               "content": {
                 "body": {
                   "sections": {
@@ -203,6 +214,17 @@
                   }
                 }
               }
+            }
+          }
+        },
+        "vendor_poheaders_pototcompObjectPage": {
+          "type": "Component",
+          "id": "vendor_poheaders_pototcompObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/vendor/poheaders/pototcomp",
+              "navigation": {}
             }
           }
         }

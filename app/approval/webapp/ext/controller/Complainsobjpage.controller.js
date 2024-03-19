@@ -15,10 +15,11 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 			},
 			routing:
 			{
-				onBeforeBinding: function (oEvent) {
+				onAfterBinding: function (oEvent) {
 					debugger
-					sap.ui.getCore().byId("approval::complainsObjectPage--fe::CustomSubSection::Attachements--uploadSet-uploader-fu_button").setVisible(false);
-					sap.ui.getCore().byId("approval::complainsObjectPage--fe::CustomSubSection::Attachements--uploadSet-uploadButton").setVisible(false);
+					// sap.ui.getCore().byId("approval::complainsObjectPage--fe::CustomSubSection::Attachements--uploadSet-uploader-fu_button").setVisible(false);
+					// sap.ui.getCore().byId("approval::complainsObjectPage--fe::CustomSubSection::Attachements--uploadSet-uploadButton").setVisible(false);
+					
 				}
 				// onAfterBinding : function(oEvent)
 				// {

@@ -13,3 +13,32 @@
 .commenthbox {
     width: 90vw;
 }
+#approval\:\:complainsObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:Resolve-inner
+{   
+    /* height: 30px;
+    width: 80px; */
+    filter: drop-shadow(2px 4px 6px black);
+    color: white;
+    background-color: rgb(63, 211, 4);
+}
+#approval\:\:complainsObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:FurtherAssign-inner
+{
+    /* height: 30px;
+    width: 80px; */
+    filter: drop-shadow(2px 4px 6px black);
+    color: white;
+    background-color: blue;
+}
+#approval\:\:complainsObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:RevertBack-inner
+{
+    /* height: 30px;
+    width: 80px; */
+    filter: drop-shadow(2px 4px 6px black);
+    color: white;
+    background-color: red;
+}
+#approval\:\:complainsObjectPage--fe\:\:CustomSubSection\:\:Attachements-innerGrid
+{
+    height: 300px !important;
+    overflow: scroll !important; 
+}

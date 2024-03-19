@@ -3,7 +3,7 @@
 	<VBox id= "vv" class = "commentvbox">
 	<Button id="comm" class = "commentbtn" core:require="{ handler: 'approval/ext/fragment/Comments'}" text="Comments" press="handler.onPress" />
 		<HBox id= "hh">
-			<TextArea id="ta" rows="8" width="90vw" class="commenthbox"/>
+			<TextArea id="ta" rows="8" width="90vw" class="commenthbox" placeholder="write a comment"/>
 			
 		</HBox>
 		

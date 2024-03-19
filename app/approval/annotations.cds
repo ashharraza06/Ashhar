@@ -70,3 +70,6 @@ annotate service.complains with @(
 annotate service.complains with {
     desc @UI.MultiLineText : true
 };
+annotate service.complains with @(
+    UI.DeleteHidden : true
+);

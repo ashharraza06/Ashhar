@@ -11,3 +11,18 @@
 {
     font-weight: bold;
 }
+#vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:CustomSubSection\:\:Attachement-innerGrid{
+    height: 300px !important;
+    overflow: scroll !important; 
+}
+#vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:Sumbit-inner{
+    filter: drop-shadow(2px 4px 6px black);
+    color: white;
+    background-color: rgb(63, 211, 4);
+}
+
+#vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:cancel-inner{
+    filter: drop-shadow(2px 4px 6px black);
+    color: white;
+    background-color: red;
+}
