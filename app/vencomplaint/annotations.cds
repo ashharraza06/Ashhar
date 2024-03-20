@@ -84,3 +84,21 @@ annotate service.poheader with {
 annotate service.poheader with {
     amount @Common.FieldControl : #ReadOnly
 };
+annotate service.complains with {
+    complainno @Common.FieldControl : #ReadOnly
+};
+annotate service.complains with {
+    pono @Common.FieldControl : #ReadOnly
+};
+annotate service.complains with {
+    pannum @Common.FieldControl : #ReadOnly
+};
+annotate service.complains with {
+    vencode @Common.FieldControl : #ReadOnly
+};
+annotate service.complains with {
+    complain_about @Common.FieldControl : #ReadOnly
+};
+annotate service.complains with {
+    status @Common.FieldControl : #ReadOnly
+};

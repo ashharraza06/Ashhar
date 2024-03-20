@@ -17,25 +17,25 @@
 {   
     /* height: 30px;
     width: 80px; */
-    filter: drop-shadow(2px 4px 6px black);
     color: white;
-    background-color: rgb(63, 211, 4);
+    background-color: mediumseagreen;
+    filter: drop-shadow(2px 4px 6px black);
 }
 #approval\:\:complainsObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:FurtherAssign-inner
 {
     /* height: 30px;
     width: 80px; */
-    filter: drop-shadow(2px 4px 6px black);
+    background-color: orange;
     color: white;
-    background-color: blue;
+    filter: drop-shadow(2px 4px 6px black);
 }
 #approval\:\:complainsObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:RevertBack-inner
 {
     /* height: 30px;
     width: 80px; */
-    filter: drop-shadow(2px 4px 6px black);
     color: white;
-    background-color: red;
+    background-color: orangered;
+    filter: drop-shadow(2px 4px 6px black);
 }
 #approval\:\:complainsObjectPage--fe\:\:CustomSubSection\:\:Attachements-innerGrid
 {

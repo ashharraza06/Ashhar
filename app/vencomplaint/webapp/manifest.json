@@ -63,7 +63,8 @@
         "sap.m": {},
         "sap.ui.core": {},
         "sap.ushell": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.f": {}
       }
     },
     "contentDensities": {
@@ -224,7 +225,18 @@
           "options": {
             "settings": {
               "contextPath": "/vendor/poheaders/pototcomp",
-              "navigation": {}
+              "navigation": {},
+              "content": {
+                "body": {
+                  "sections": {
+                    "Comps": {
+                      "template": "vencomplaint.ext.fragment.Comps",
+                      "title": "Reverted Complain",
+                      "type": "XMLFragment"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -235,6 +247,9 @@
         "sap.ui.controllerExtensions": {
           "sap.fe.templates.ObjectPage.ObjectPageController#vencomplaint::vendor_poheadersObjectPage": {
             "controllerName": "vencomplaint.ext.controller.Complaint"
+          },
+          "sap.fe.templates.ObjectPage.ObjectPageController#vencomplaint::vendor_poheaders_pototcompObjectPage": {
+            "controllerName": "vencomplaint.ext.controller.Objcomplaint"
           }
         }
       }

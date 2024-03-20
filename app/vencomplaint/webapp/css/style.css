@@ -16,13 +16,33 @@
     overflow: scroll !important; 
 }
 #vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:Sumbit-inner{
-    filter: drop-shadow(2px 4px 6px black);
     color: white;
-    background-color: rgb(63, 211, 4);
+    background-color: mediumseagreen;
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 #vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:cancel-inner{
-    filter: drop-shadow(2px 4px 6px black);
     color: white;
-    background-color: red;
+    background-color: orangered;
+    filter: drop-shadow(2px 4px 6px black);
+}
+.Panbox
+{
+    padding-left: 23px;
+   
+}
+.revhbox1
+{
+    gap : 33%;
+    width: 100%;
+}
+.revhbox2
+{
+    gap : 33%;
+    width: 100%;
+}
+.revermainvbox
+{
+    gap : 10px;
+    width: 100%;
 }

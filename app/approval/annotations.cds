@@ -20,14 +20,7 @@ annotate service.complains with @(
     ]
 );
 annotate service.complains with @(
-    UI.Facets : [
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : 'Complaint Details',
-            ID : 'ComplaintDetails',
-            Target : '@UI.FieldGroup#ComplaintDetails',
-        },
-    ],
+
     UI.FieldGroup #ComplaintDetails : {
         $Type : 'UI.FieldGroupType',
         Data : [

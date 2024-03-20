@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox class = "revermainvbox" id = "revvbox">
+		<!-- <Button core:require="{ handler: 'vencomplaint/ext/fragment/Comps'}" text="Comps" press="handler.onPress" /> -->
+		<HBox id = "revhb1" class="revhbox1">
+			<VBox id="complaintNoBox">
+				<Label id="complaintNoLabel" text="Complaint No:" />
+				<Text id="complaintNoValue" text="Value1" />
+			</VBox>
+			<VBox id="poNumberBox">
+				<Label id="poNumberLabel" text="PO Number:" />
+				<Text id="poNumberValue" text="Value2" />
+			</VBox>
+			<VBox id="panNumberBox" class = "Panbox">
+				<Label id="panNumberLabel" text="PAN Number:" />
+				<Text id="panNumberValue" text="Value3" />
+			</VBox>
+		</HBox>
+		<HBox  id = "revhb2" class="revhbox2">
+			<VBox id="vendorCodeBox">
+				<Label id="vendorCodeLabel" text="Vendor Code:" />
+				<Text id="vendorCodeValue" text="Value4" />
+			</VBox>
+			<VBox id="complainAboutBox">
+				<Label id="complainAboutLabel" text="Complain About:" />
+				<Text id="complainAboutValue" text="Value5" />
+			</VBox>
+			<VBox id="statusBox">
+				<Label id="statusLabel" text="Status:" />
+				<Text id="statusValue" text="Value6" />
+			</VBox>
+		</HBox>
+		<VBox id="complainDescriptionBox">
+			<Label id="complainDescriptionLabel" text="Complain Description:" />
+			<TextArea id="complainDescriptionValue"  width = "100%" height = "130px" />
+		</VBox>
+
+	</VBox>
+</core:FragmentDefinition>
