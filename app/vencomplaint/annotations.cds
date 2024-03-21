@@ -21,11 +21,11 @@ annotate service.complains with @(
             Label : 'Complaint No',
         },{
             $Type : 'UI.DataField',
-            Value : complain_about,
+            Value : ccomplain_about,
             Label : 'Complain About',
         },{
             $Type : 'UI.DataField',
-            Value : status,
+            Value : cstatus,
             Label : 'Status',
         },]
 );
@@ -88,17 +88,17 @@ annotate service.complains with {
     complainno @Common.FieldControl : #ReadOnly
 };
 annotate service.complains with {
-    pono @Common.FieldControl : #ReadOnly
+    cpono @Common.FieldControl : #ReadOnly
 };
 annotate service.complains with {
-    pannum @Common.FieldControl : #ReadOnly
+    cpannum @Common.FieldControl : #ReadOnly
 };
 annotate service.complains with {
-    vencode @Common.FieldControl : #ReadOnly
+    cvencode @Common.FieldControl : #ReadOnly
 };
 annotate service.complains with {
-    complain_about @Common.FieldControl : #ReadOnly
+    ccomplain_about @Common.FieldControl : #ReadOnly
 };
 annotate service.complains with {
-    status @Common.FieldControl : #ReadOnly
+    cstatus @Common.FieldControl : #ReadOnly
 };

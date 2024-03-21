@@ -17,13 +17,18 @@ sap.ui.define([
                 buttons: [
                     new sap.m.Button({
                         text: "Yes",
-                        press: function() {
+                        press: async function() {
                             debugger
-                            var compno = sap.ui.getCore().byId("approval::complainsObjectPage--fe::FormContainer::ComplaintDetails::FormElement::DataField::complainno::Field-content").mAggregations.contentEdit[0].mProperties.value
+                            // var compno = sap.ui.getCore().byId("approval::complainsObjectPage--fe::FormContainer::ComplaintDetails::FormElement::DataField::complainno::Field-content").mAggregations.contentEdit[0].mProperties.value
+                            // var compno = sap.ui.getCore().byId("approval::complainsObjectPage--fe::FormContainer::Complaint::FormElement::DataField::complainno::Field-content").mAggregations.contentDisplay.mProperties.text
+                            var path = window.location.href;
+                            var regex = /complains\('([^']+)'\)/;
+                            var match = path.match(regex);
+                            var compno = match[1];
                             var status = "Further Assigned";
-                            let testdata = JSON.stringify({status : status });
+                            let testdata = JSON.stringify({cstatus : status });
                             var url = '/odata/v4/my/complains/' + compno;
-                            $.ajax({
+                            await $.ajax({
                                 url: url,
                                 type: 'PATCH',
                                 contentType: 'application/json',

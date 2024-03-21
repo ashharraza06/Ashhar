@@ -1,3 +1,8 @@
+<!-- <core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox>
+		<Button core:require="{ handler: 'vencomplaint/ext/fragment/Revattachments'}" text="Revattachments" press="handler.onPress" />
+	</VBox>
+</core:FragmentDefinition> -->
 <core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros"
 displayBlock="true"
 xmlns:mvc="sap.ui.core.mvc"
@@ -7,9 +12,10 @@ xmlns:mvc="sap.ui.core.mvc"
 						<upload:UploadSet
 					
 					id="uploadSet"
-					core:require="{ handler: 'vencomplaint/ext/controller/Submit'}"
+					core:require="{ handler: 'vencomplaint/ext/fragment/Revattachments'}"
 					instantUpload="false"
 					uploadEnabled="true"
+					uploadButtonInvisible= "true"
 					showIcons="true"
 					mode="None"
 					afterItemAdded="handler.onAfterItemAdded"
@@ -36,6 +42,9 @@ xmlns:mvc="sap.ui.core.mvc"
 							enabledEdit="false"
 							openPressed="handler.onOpenPressed"
 							removePressed="handler.onRemovePressed"
+							visibleEdit="false"
+							visibleRemove="false"
+							enabledRemove="false"
 						>
 							<upload:attributes>
 								<ObjectAttribute

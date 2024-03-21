@@ -13,6 +13,7 @@ xmlns:mvc="sap.ui.core.mvc"
 					uploadEnabled="false"
 					uploadButtonInvisible="true" 
 					showIcons="true"
+					mode="None"
 					afterItemAdded="handler.onAfterItemAdded"
 					uploadCompleted="handler.onUploadCompleted"
 					items="{
@@ -32,7 +33,7 @@ xmlns:mvc="sap.ui.core.mvc"
 							url="{url}"
 							thumbnailUrl="{
 								path: 'mediaType',
-								formatter: '.formatThumbnailUrl'
+								formatter: 'handler.formatThumbnailUrl'
 							}"
 							enabledEdit="false"
 							openPressed="handler.onOpenPressed"

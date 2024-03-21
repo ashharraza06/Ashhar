@@ -4,15 +4,15 @@ sap.ui.define([
     'use strict';
 
     return {
-        Resolve: function(oEvent) {
+        revsumbit: async function(oEvent) {
             debugger
-            // MessageToast.show("Custom handler invoked.");
+            MessageToast.show("Custom handler invoked.");
             var oDialog = new sap.m.Dialog({
-                title: "Resolve",
+                title: "SUBMIT",
                 resizable: true,
                 draggable: true,
                 content: [
-                    new sap.m.Label({ text: "Are you sure you want to Resolve?" })
+                    new sap.m.Label({ text: "Are you sure you want to Submit?" })
                 ],
                 buttons: [
                     new sap.m.Button({
@@ -20,34 +20,35 @@ sap.ui.define([
                         press: async function() {
                             debugger
                             var path = window.location.href;
-                            var regex = /complains\('([^']+)'\)/;
-                            var match = path.match(regex);
-                            var compno = match[1];
-                           
-                            // var compno = sap.ui.getCore().byId("approval::complainsObjectPage--fe::FormContainer::ComplaintDetails::FormElement::DataField::complainno::Field-content").mAggregations.contentEdit[0].mProperties.value
-                            // var compno = sap.ui.getCore().byId("approval::complainsObjectPage--fe::FormContainer::Complaint::FormElement::DataField::complainno::Field-content").mAggregations.contentDisplay.mProperties.text
-                            var status = "Resolved";
-                            let testdata = JSON.stringify({cstatus : status });
-                            var url = '/odata/v4/my/complains/' + compno;
+                            		var regex = /pototcomp\('([^']+)'\)/;
+                            		var compno = (regex.exec(path) || [])[1];
+                            var desc = sap.ui.getCore().byId("vencomplaint::vendor_poheaders_pototcompObjectPage--fe::CustomSubSection::Comps-innerGrid").mAggregations.content[0].mAggregations.content.mAggregations.items[2].mAggregations.items[1]._lastValue;
+                            var status = "Submitted";
+                            var Url = '/odata/v4/my/complains/' + compno; 
+                            var testdata = JSON.stringify({
+                                complainno: compno,
+                                cdesc: desc,
+                                cstatus: status
+                            });
                             await $.ajax({
-                                url: url,
+                                url: Url,
                                 type: 'PATCH',
                                 contentType: 'application/json',
                                 data: testdata,
                                 success: function (data) {
                                     debugger
                                     // Handle success
-                                    console.log(data);
-            
+                                    MessageToast.show("Complaint Sumbitted.");
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
                                     // Handle error
-                                    debugger
                                     console.error(textStatus, errorThrown);
+                                    MessageToast.show("Unexpected Error Occurred.");
                                 }
-                            });
+                            })
                             oDialog.close();
-                            MessageToast.show("Complaint has updated Successfully");
+                            MessageToast.show("Successfully submitted");
+                            window.history.go(-3);
                         }
                     }),
                     new sap.m.Button({
@@ -61,6 +62,12 @@ sap.ui.define([
             });
             
             oDialog.open();
+            // window.history.go(-3);
+
+        },
+        revcancel: function() {
+            // MessageToast.show("Custom handler invoked.");
+            window.history.go(-3);
         }
     };
 });

@@ -233,6 +233,35 @@
                       "template": "vencomplaint.ext.fragment.Comps",
                       "title": "Reverted Complain",
                       "type": "XMLFragment"
+                    },
+                    "Revattachments": {
+                      "template": "vencomplaint.ext.fragment.Revattachments",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Comps"
+                      },
+                      "title": "Attachments",
+                      "type": "XMLFragment"
+                    }
+                  }
+                },
+                "footer": {
+                  "actions": {
+                    "revsumbit": {
+                      "press": "vencomplaint.ext.controller.Revsumbit.revsumbit",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Sumbit"
+                    },
+                    "revcancel": {
+                      "press": "vencomplaint.ext.controller.Revsumbit.revcancel",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Cancel",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "revsumbit"
+                      }
                     }
                   }
                 }

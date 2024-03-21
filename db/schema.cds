@@ -14,26 +14,28 @@ entity vendorinfo {
 }
 
 entity poheader {
-    key pono    : String;
-        vendor  : String;
-        pannum  : String;
-        amount  : String;
-        potoven : Association to one vendorinfo
-                      on potoven.vencode = vendor;
-        pototcomp : Composition of many complaint on pototcomp.pono = pono;
+    key pono      : String;
+        vendor    : String;
+        pannum    : String;
+        amount    : String;
+        potoven   : Association to one vendorinfo
+                        on potoven.vencode = vendor;
+        pototcomp : Composition of many complaint
+                        on pototcomp.cpono = pono;
 }
 
 entity complaint {
-    key complainno     : String;
-        pono           : String;
-        vencode        : String;
-        pannum         : String;
-        status         : String;
-        complain_about : String;
-        desc           : String;
-        comptopo : Association to one poheader on comptopo.pono = pono;
-        comptofile     : Composition of many files
-                             on comptofile.complaintno = complainno;
+    key complainno      : String;
+        cpono           : String;
+        cvencode        : String;
+        cpannum         : String;
+        cstatus         : String;
+        ccomplain_about : String;
+        cdesc           : String;
+        comptopo        : Association to one poheader
+                              on comptopo.pono = cpono;
+        comptofile      : Composition of many files
+                              on comptofile.complaintno = complainno;
 
 }
 
@@ -50,7 +52,8 @@ entity files : cuid, managed {
     filetocom   : Association to one complaint
                       on filetocom.complainno = complaintno;
 }
-entity comments: cuid{
-    complainno: String;
-    comments: String;
+
+entity comments : cuid {
+    complainno : String;
+    comments   : String;
 }

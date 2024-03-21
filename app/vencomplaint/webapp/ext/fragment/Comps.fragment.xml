@@ -2,29 +2,29 @@
 	<VBox class = "revermainvbox" id = "revvbox">
 		<!-- <Button core:require="{ handler: 'vencomplaint/ext/fragment/Comps'}" text="Comps" press="handler.onPress" /> -->
 		<HBox id = "revhb1" class="revhbox1">
-			<VBox id="complaintNoBox">
+			<VBox id="complaintNoBox" width="30%">
 				<Label id="complaintNoLabel" text="Complaint No:" />
 				<Text id="complaintNoValue" text="Value1" />
 			</VBox>
-			<VBox id="poNumberBox">
+			<VBox id="poNumberBox" width="30%">
 				<Label id="poNumberLabel" text="PO Number:" />
 				<Text id="poNumberValue" text="Value2" />
 			</VBox>
-			<VBox id="panNumberBox" class = "Panbox">
+			<VBox id="panNumberBox" class = "Panbox" width="30%">
 				<Label id="panNumberLabel" text="PAN Number:" />
 				<Text id="panNumberValue" text="Value3" />
 			</VBox>
 		</HBox>
 		<HBox  id = "revhb2" class="revhbox2">
-			<VBox id="vendorCodeBox">
+			<VBox id="vendorCodeBox" width="30%">
 				<Label id="vendorCodeLabel" text="Vendor Code:" />
 				<Text id="vendorCodeValue" text="Value4" />
 			</VBox>
-			<VBox id="complainAboutBox">
+			<VBox id="complainAboutBox" width="30%">
 				<Label id="complainAboutLabel" text="Complain About:" />
 				<Text id="complainAboutValue" text="Value5" />
 			</VBox>
-			<VBox id="statusBox">
+			<VBox id="statusBox" width="30%">
 				<Label id="statusLabel" text="Status:" />
 				<Text id="statusValue" text="Value6" />
 			</VBox>

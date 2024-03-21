@@ -134,8 +134,7 @@
                                         "Comments": {
                                             "template": "approval.ext.fragment.Comments",
                                             "position": {
-                                                "placement": "After",
-                                                "anchor": "ComplaintDetails"
+                                                "placement": "After"
                                             },
                                             "title": "Comments",
                                             "type": "XMLFragment"

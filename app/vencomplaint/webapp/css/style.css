@@ -2,6 +2,8 @@
 {
     gap : 5px;
     font-size: 15px ;
+    /* height : 300px;
+    overflow: scroll; */
 }
 .vencode
 {
@@ -11,38 +13,46 @@
 {
     font-weight: bold;
 }
-#vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:CustomSubSection\:\:Attachement-innerGrid{
+/* #vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:CustomSubSection\:\:Attachement-innerGrid{
     height: 300px !important;
     overflow: scroll !important; 
-}
-#vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:Sumbit-inner{
+} */
+#vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:Sumbit-inner,#vencomplaint\:\:vendor_poheaders_pototcompObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:revsumbit-inner
+{
     color: white;
     background-color: mediumseagreen;
     filter: drop-shadow(2px 4px 6px black);
 }
 
-#vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:cancel-inner{
+#vencomplaint\:\:vendor_poheadersObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:cancel-inner,#vencomplaint\:\:vendor_poheaders_pototcompObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:revcancel-inner
+{
     color: white;
     background-color: orangered;
     filter: drop-shadow(2px 4px 6px black);
 }
-.Panbox
-{
-    padding-left: 23px;
-   
-}
+
+
+
 .revhbox1
 {
-    gap : 33%;
     width: 100%;
 }
 .revhbox2
 {
-    gap : 33%;
     width: 100%;
 }
 .revermainvbox
 {
-    gap : 10px;
     width: 100%;
+    gap : 10px;
+}
+#complaintNoBox,#poNumberBox,#panNumberBox,#vendorCodeBox,#complainAboutBox,#statusBox
+{
+    width: 40%;
+    align-items: left;
+}
+#poNumberValue,#panNumberValue,#vendorCodeValue,#complainAboutValue,#statusValue,#complainDescriptionValue
+{
+    font-weight: bold;
+    display: none;
 }

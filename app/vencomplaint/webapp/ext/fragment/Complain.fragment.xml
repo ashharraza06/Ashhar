@@ -5,15 +5,16 @@
         <Label id= "sp" text="Selected PO Number is:"/>
         <Text id="pono" class = "pono" text="Value"/>
         <Label id= "ci" text="Complain is about:"/>
-        <Select id="ordr" name="purch_ordr">
-            <core:Item id= "dp" key="DP" text="Delay in Payment"/>
-            <core:Item id= "wp" key="WP" text="Wrong Payment"/>
-            <core:Item id= "tdsi" key="TDSI" text="TDS issue"/>
-            <core:Item id= "gsti" key="GSTI" text="GST issue"/>
-            <core:Item id= "others "key="Others" text="Others"/>
+        <Select id="ordr" >
+            <core:Item id= "dp" text="Delay in Payment"/>
+            <core:Item id= "wp"  text="Wrong Payment"/>
+            <core:Item id= "tdsi"  text="TDS issue"/>
+            <core:Item id= "gsti" text="GST issue"/>
+            <core:Item id= "others" text="Others"/>
         </Select>
-        <Label id= "txt" text="Describe your Complain:"/>
-        <TextArea id="desc"  width = "100%" height = "130px"/>
+        <Label id = "desccomp" text="Describe your Complain:"/>
+        <TextArea id = "textcomp" width = "100%" height = "130px"/>
+
 		<!-- <Button core:require="{ handler: 'project1/ext/fragment/Complaint'}" text="Complaint" press="handler.onPress" /> -->
 	</VBox>
 </core:FragmentDefinition>

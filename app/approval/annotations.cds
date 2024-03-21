@@ -9,19 +9,26 @@ annotate service.complains with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : pannum,
+            Value : cpannum,
             Label : 'Pan No',
         },
         {
             $Type : 'UI.DataField',
-            Value : vencode,
+            Value : cvencode,
             Label : 'Vendor Code',
         },
     ]
 );
 annotate service.complains with @(
-
-    UI.FieldGroup #ComplaintDetails : {
+    UI.Facets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Complaint',
+            ID : 'Complaints',
+            Target : '@UI.FieldGroup#Complaint',
+        },
+    ],
+    UI.FieldGroup #Complaint : {
         $Type : 'UI.FieldGroupType',
         Data : [
             {
@@ -31,38 +38,34 @@ annotate service.complains with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : pono,
-                Label : 'PO Number',
+                Value : cpannum,
+                Label : 'PAN Number',
             },
             {
                 $Type : 'UI.DataField',
-                Value : pannum,
-                Label : 'Pan Number',
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : vencode,
+                Value : cvencode,
                 Label : 'Vendor Code',
             },
             {
                 $Type : 'UI.DataField',
-                Value : complain_about,
-                Label : 'Complain About',
+                Value : cpono,
+                Label : 'PO Number',
             },
             {
                 $Type : 'UI.DataField',
-                Value : status,
-                Label : 'Status',
+                Value : ccomplain_about,
+                Label : 'Complain About',
             },{
                 $Type : 'UI.DataField',
-                Value : desc,
+                Value : cdesc,
                 Label : 'Complain Description',
+            },{
+                $Type : 'UI.DataField',
+                Value : cstatus,
+                Label : 'Status',
             },],
     }
 );
-annotate service.complains with {
-    desc @UI.MultiLineText : true
-};
 annotate service.complains with @(
     UI.DeleteHidden : true
 );

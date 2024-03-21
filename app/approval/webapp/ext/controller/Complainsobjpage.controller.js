@@ -17,14 +17,24 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 			{
 				onAfterBinding: function (oEvent) {
 					debugger
+					var path = window.location.href;
+
 					// sap.ui.getCore().byId("approval::complainsObjectPage--fe::CustomSubSection::Attachements--uploadSet-uploader-fu_button").setVisible(false);
 					// sap.ui.getCore().byId("approval::complainsObjectPage--fe::CustomSubSection::Attachements--uploadSet-uploadButton").setVisible(false);
-					
+					var regex = /complains\('([^']+)'\)/;
+					var match = regex.exec(path);
+					var compno = match ? match[1] : null;
+
+					var add = this.base.getView().getContent()[0].getSections()[2].mAggregations._grid.getContent()[0].mAggregations._grid.getContent()[0].getContent().getItems()[0].mBindingInfos.items.binding;
+					add.filter(
+						new sap.ui.model.Filter({
+							path: "complaintno",
+							operator: sap.ui.model.FilterOperator.EQ,
+							value1: compno
+						})
+					);
 				}
-				// onAfterBinding : function(oEvent)
-				// {
-				// 	debugger
-				// }
+
 			}
 		}
 	});
