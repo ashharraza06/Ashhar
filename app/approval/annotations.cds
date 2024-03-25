@@ -17,6 +17,11 @@ annotate service.complains with @(
             Value : cvencode,
             Label : 'Vendor Code',
         },
+        {
+            $Type : 'UI.DataField',
+            Value : cstatus,
+            Label : 'Status',
+        },
     ]
 );
 annotate service.complains with @(
@@ -69,3 +74,11 @@ annotate service.complains with @(
 annotate service.complains with @(
     UI.DeleteHidden : true
 );
+annotate service.complains with @(
+    UI.SelectionFields : [
+        cstatus,
+    ]
+);
+annotate service.complains with {
+    cstatus @Common.Label : 'cstatus'
+};

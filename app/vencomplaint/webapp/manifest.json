@@ -105,22 +105,33 @@
         {
           "pattern": ":?query:",
           "name": "vendorList",
-          "target": "vendorList"
+          "target": [
+            "vendorList"
+          ]
         },
         {
           "pattern": "vendor({key}):?query:",
           "name": "vendorObjectPage",
-          "target": "vendorObjectPage"
+          "target": [
+            "vendorList",
+            "vendorObjectPage"
+          ]
         },
         {
           "pattern": "vendor({key})/poheaders({key2}):?query:",
           "name": "vendor_poheadersObjectPage",
-          "target": "vendor_poheadersObjectPage"
+          "target": [
+            "vendorList",
+            "vendorObjectPage",
+            "vendor_poheadersObjectPage"
+          ]
         },
         {
           "pattern": "vendor({key})/poheaders({key2})/pototcomp({key3}):?query:",
           "name": "vendor_poheaders_pototcompObjectPage",
-          "target": "vendor_poheaders_pototcompObjectPage"
+          "target": [
+            "vendor_poheaders_pototcompObjectPage"
+          ]
         }
       ],
       "targets": {
@@ -141,7 +152,9 @@
               },
               "initialLoad": "Enabled"
             }
-          }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
         },
         "vendorObjectPage": {
           "type": "Component",
@@ -159,7 +172,9 @@
                 }
               }
             }
-          }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/vendor({key})"
         },
         "vendor_poheadersObjectPage": {
           "type": "Component",
@@ -200,7 +215,7 @@
                       "press": "vencomplaint.ext.controller.Submit.submit",
                       "visible": true,
                       "enabled": true,
-                      "text": "Sumbit"
+                      "text": "Submit"
                     },
                     "cancel": {
                       "press": "vencomplaint.ext.controller.Submit.cancel",
@@ -216,7 +231,9 @@
                 }
               }
             }
-          }
+          },
+          "controlAggregation": "endColumnPages",
+          "contextPattern": "/vendor({key})/poheaders({key2})"
         },
         "vendor_poheaders_pototcompObjectPage": {
           "type": "Component",
@@ -267,8 +284,17 @@
                 }
               }
             }
-          }
+          },
+          "controlAggregation": "endColumnPages",
+          "contextPattern": "/vendor({key})/poheaders({key2})/pototcomp({key3})"
         }
+      },
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
       }
     },
     "extends": {
@@ -282,6 +308,12 @@
           }
         }
       }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
     }
   },
   "sap.fiori": {

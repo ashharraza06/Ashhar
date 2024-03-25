@@ -1,10 +1,10 @@
-using { db } from '../db/schema';
+using {db} from '../db/schema';
 
-service MyService
- {
-    entity vendor as projection on  db.vendorinfo; 
-    entity poheader as projection on db.poheader;
-    entity complains as projection on  db.complaint;  
-    entity files as projection on db.files;
-    entity comment as projection on db.comments; 
+service MyService {
+    entity vendor    as projection on db.vendorinfo;
+    entity poheader  as projection on db.poheader;
+    entity complains as projection on db.complaint;
+    entity files     as projection on db.files;
+    entity comment   as projection on db.comments;
+    function submitcomplaints(data : String,status:String) returns String;
 }

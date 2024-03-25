@@ -29,13 +29,16 @@ entity complaint {
         cpono           : String;
         cvencode        : String;
         cpannum         : String;
-        cstatus         : String;
+        cstatus         : String @Common.FilterDefaultValue: 'Submitted';
         ccomplain_about : String;
         cdesc           : String;
         comptopo        : Association to one poheader
                               on comptopo.pono = cpono;
         comptofile      : Composition of many files
                               on comptofile.complaintno = complainno;
+        comptocomm      : Composition of many comments
+                              on comptocomm.complainno = complainno;
+// comptoworkflow  : Composition of many workflowhisotry on comptoworkflow.complainno = complainno;
 
 }
 
@@ -53,7 +56,30 @@ entity files : cuid, managed {
                       on filetocom.complainno = complaintno;
 }
 
-entity comments : cuid {
-    complainno : String;
-    comments   : String;
+entity comments : managed {
+    key idd        : UUID;
+    key complainno : String;
+        comments   : String;
+        commtocomp : Association to one complaint
+                         on commtocomp.complainno = complainno;
 }
+
+// @cds.persistance.exists
+// entity workflowhisotry {
+//    key idd : String;
+//    key complainno: String;
+//      Employee_ID : String;
+//    level : String;
+//   Approved_by: String;
+//   Employee_Name : String;
+//     Title : String;
+
+
+//     Notification_Status : String;
+//     Result : String;
+//     Begin_DateAND_Time: String;
+//     End_DateAND_Time: String;
+//     Days_Taken : String;
+//     Remarks : String;
+//     workflowhistorytocomp :  Association to one complaint on workflowhistorytocomp.complainno = complainno;
+// }

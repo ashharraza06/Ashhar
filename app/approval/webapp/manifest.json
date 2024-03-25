@@ -1,207 +1,232 @@
 {
-    "_version": "1.59.0",
-    "sap.app": {
-        "id": "approval",
-        "type": "application",
-        "i18n": "i18n/i18n.properties",
-        "applicationVersion": {
-            "version": "0.0.1"
-        },
-        "title": "{{appTitle}}",
-        "description": "{{appDescription}}",
-        "resources": "resources.json",
-        "sourceTemplate": {
-            "id": "@sap/generator-fiori:lrop",
-            "version": "1.13.0",
-            "toolsId": "a4501891-571a-463a-8cad-5ced4c7946a0"
-        },
-        "dataSources": {
-            "mainService": {
-                "uri": "/odata/v4/my/",
-                "type": "OData",
-                "settings": {
-                    "annotations": [],
-                    "odataVersion": "4.0"
-                }
-            }
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "approval",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.13.0",
+      "toolsId": "a4501891-571a-463a-8cad-5ced4c7946a0"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/my/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
         }
+      }
     },
-    "sap.ui": {
-        "technology": "UI5",
-        "icons": {
-            "icon": "",
-            "favIcon": "",
-            "phone": "",
-            "phone@2": "",
-            "tablet": "",
-            "tablet@2": ""
-        },
-        "deviceTypes": {
-            "desktop": true,
-            "tablet": true,
-            "phone": true
+    "crossNavigation": {
+      "inbounds": {
+        "approval-display": {
+          "semanticObject": "approval",
+          "action": "display",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
         }
-    },
-    "sap.ui5": {
-        "flexEnabled": true,
-        "dependencies": {
-            "minUI5Version": "1.121.2",
-            "libs": {
-                "sap.m": {},
-                "sap.ui.core": {},
-                "sap.ushell": {},
-                "sap.fe.templates": {},
-                "sap.suite.ui.commons": {}
-            }
-        },
-        "contentDensities": {
-            "compact": true,
-            "cozy": true
-        },
-        "models": {
-            "i18n": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "settings": {
-                    "bundleName": "approval.i18n.i18n"
-                }
-            },
-            "": {
-                "dataSource": "mainService",
-                "preload": true,
-                "settings": {
-                    "synchronizationMode": "None",
-                    "operationMode": "Server",
-                    "autoExpandSelect": true,
-                    "earlyRequests": true
-                }
-            },
-            "@i18n": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/i18n.properties"
-            }
-        },
-        "resources": {
-            "css": [
-                {
-                    "uri": "css/style.css"
-                }
-            ]
-        },
-        "routing": {
-            "routes": [
-                {
-                    "pattern": ":?query:",
-                    "name": "complainsList",
-                    "target": "complainsList"
-                },
-                {
-                    "pattern": "complains({key}):?query:",
-                    "name": "complainsObjectPage",
-                    "target": "complainsObjectPage"
-                }
-            ],
-            "targets": {
-                "complainsList": {
-                    "type": "Component",
-                    "id": "complainsList",
-                    "name": "sap.fe.templates.ListReport",
-                    "options": {
-                        "settings": {
-                            "contextPath": "/complains",
-                            "variantManagement": "Page",
-                            "navigation": {
-                                "complains": {
-                                    "detail": {
-                                        "route": "complainsObjectPage"
-                                    }
-                                }
-                            },
-                            "initialLoad": "Enabled"
-                        }
-                    }
-                },
-                "complainsObjectPage": {
-                    "type": "Component",
-                    "id": "complainsObjectPage",
-                    "name": "sap.fe.templates.ObjectPage",
-                    "options": {
-                        "settings": {
-                            "editableHeaderContent": false,
-                            "contextPath": "/complains",
-                            "content": {
-                                "body": {
-                                    "sections": {
-                                        "Comments": {
-                                            "template": "approval.ext.fragment.Comments",
-                                            "position": {
-                                                "placement": "After"
-                                            },
-                                            "title": "Comments",
-                                            "type": "XMLFragment"
-                                        },
-                                        "Attachements": {
-                                            "template": "approval.ext.fragment.Attachements",
-                                            "position": {
-                                                "placement": "After",
-                                                "anchor": "Comments"
-                                            },
-                                            "title": "Attachments",
-                                            "type": "XMLFragment"
-                                        }
-                                    }
-                                },
-                                "footer": {
-                                    "actions": {
-                                        "Resolve": {
-                                            "press": "approval.ext.controller.Resolve.Resolve",
-                                            "visible": true,
-                                            "enabled": true,
-                                            "text": "Resolve"
-                                        },
-                                        "FurtherAssign": {
-                                            "press": "approval.ext.controller.FurtherAssign.FurtherAssign",
-                                            "visible": true,
-                                            "enabled": true,
-                                            "text": "Further Assign",
-                                            "position": {
-                                                "placement": "After",
-                                                "anchor": "Resolve"
-                                            }
-                                        },
-                                        "RevertBack": {
-                                            "press": "approval.ext.controller.RevertBack.RevertBack",
-                                            "visible": true,
-                                            "enabled": true,
-                                            "text": "Revert Back",
-                                            "position": {
-                                                "placement": "After",
-                                                "anchor": "FurtherAssign"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "extends": {
-            "extensions": {
-                "sap.ui.controllerExtensions": {
-                    "sap.fe.templates.ObjectPage.ObjectPageController#approval::complainsObjectPage": {
-                        "controllerName": "approval.ext.controller.Complainsobjpage"
-                    }
-                }
-            }
-        }
-    },
-    "sap.fiori": {
-        "registrationIds": [],
-        "archeType": "transactional"
-    },
-    "sap.cloud": {
-        "public": true,
-        "service": "vendorcomplain"
+      }
     }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.121.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {},
+        "sap.suite.ui.commons": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "approval.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "complainsList",
+          "target": "complainsList"
+        },
+        {
+          "pattern": "complains({key}):?query:",
+          "name": "complainsObjectPage",
+          "target": "complainsObjectPage"
+        }
+      ],
+      "targets": {
+        "complainsList": {
+          "type": "Component",
+          "id": "complainsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/complains",
+              "variantManagement": "Page",
+              "navigation": {
+                "complains": {
+                  "detail": {
+                    "route": "complainsObjectPage"
+                  }
+                }
+              },
+              "initialLoad": "Enabled"
+            }
+          }
+        },
+        "complainsObjectPage": {
+          "type": "Component",
+          "id": "complainsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/complains",
+              "content": {
+                "body": {
+                  "sections": {
+                    "Comments": {
+                      "template": "approval.ext.fragment.Comments",
+                      "position": {
+                        "placement": "After"
+                      },
+                      "title": "Comments",
+                      "type": "XMLFragment"
+                    },
+                    "Attachements": {
+                      "template": "approval.ext.fragment.Attachements",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Comments"
+                      },
+                      "title": "Attachments",
+                      "type": "XMLFragment"
+                    },
+                    "WorkflowHistory": {
+                      "template": "approval.ext.fragment.WorkflowHistory",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Attachements"
+                      },
+                      "title": "Workflow History",
+                      "type": "XMLFragment"
+                    }
+                  }
+                },
+                "footer": {
+                  "actions": {
+                    "Resolve": {
+                      "press": "approval.ext.controller.Resolve.Resolve",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Resolve"
+                    },
+                    "FurtherAssign": {
+                      "press": "approval.ext.controller.FurtherAssign.FurtherAssign",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Further Assign",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Resolve"
+                      }
+                    },
+                    "RevertBack": {
+                      "press": "approval.ext.controller.RevertBack.RevertBack",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Revert Back",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "FurtherAssign"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ObjectPage.ObjectPageController#approval::complainsObjectPage": {
+            "controllerName": "approval.ext.controller.Complainsobjpage"
+          },
+          "sap.fe.templates.ListReport.ListReportController#approval::complainsList": {
+            "controllerName": "approval.ext.controller.ListController"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "vendorcomplain"
+  }
 }
