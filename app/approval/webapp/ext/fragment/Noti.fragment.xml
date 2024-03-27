@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox id="notification-container" class = "notify_container" width="100%">
+		<!-- <Button id = "btn" core:require="{ handler: 'approval/ext/fragment/Noti'}" text="Noti" press="handler.onPress" /> -->
+		<Label id="notification" class = "notify" text="This is a notification text." />
+	</VBox>
+</core:FragmentDefinition>

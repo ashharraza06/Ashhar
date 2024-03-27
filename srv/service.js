@@ -44,5 +44,15 @@ module.exports = async function () {
             let content = await UPDATE(complains).set({ cstatus: result.cstatus}).where({ complainno: comp });
             return
         }
+        if(call == 'getallComp'){
+            let content = await SELECT.from(complains)
+            return JSON.stringify(content)
+        }
+        if(call == 'patchDays'){
+            debugger
+            var comp = result.complainno;
+            let content = await UPDATE(complains).set({ days: result.days}).where({ complainno: comp });
+            return
+        }
     })
 }

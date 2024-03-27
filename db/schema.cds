@@ -24,14 +24,16 @@ entity poheader {
                         on pototcomp.cpono = pono;
 }
 
-entity complaint {
+entity complaint : managed {
     key complainno      : String;
         cpono           : String;
         cvencode        : String;
         cpannum         : String;
-        cstatus         : String @Common.FilterDefaultValue: 'Submitted';
+        cstatus         : String;
+            //    @Common.FilterDefaultValue: 'Submitted';
         ccomplain_about : String;
         cdesc           : String;
+        days            : Integer;
         comptopo        : Association to one poheader
                               on comptopo.pono = cpono;
         comptofile      : Composition of many files

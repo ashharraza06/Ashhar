@@ -22,6 +22,11 @@ annotate service.complains with @(
             Value : cstatus,
             Label : 'Status',
         },
+        {
+            $Type : 'UI.DataFieldForAnnotation',
+            Target : '@UI.Chart#days',
+            Label : 'days',
+        },
     ]
 );
 annotate service.complains with @(
@@ -82,3 +87,28 @@ annotate service.complains with @(
 annotate service.complains with {
     cstatus @Common.Label : 'cstatus'
 };
+annotate service.complains with @(
+    UI.DataPoint #days : {
+        Value : days,
+        MinimumValue : 1,
+        MaximumValue : 7,
+        CriticalityCalculation : {
+            ImprovementDirection : #Minimize,
+            DeviationRangeHighValue : 5,
+            ToleranceRangeHighValue : 3,
+        },
+    },
+    UI.Chart #days : {
+        ChartType : #Bullet,
+        Measures : [
+            days,
+        ],
+        MeasureAttributes : [
+            {
+                DataPoint : '@UI.DataPoint#days',
+                Role : #Axis1,
+                Measure : days,
+            },
+        ],
+    }
+);

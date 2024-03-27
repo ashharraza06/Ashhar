@@ -169,6 +169,15 @@
                       },
                       "title": "Workflow History",
                       "type": "XMLFragment"
+                    },
+                    "Noti": {
+                      "template": "approval.ext.fragment.Noti",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "Complaints"
+                      },
+                      "title": "Notification",
+                      "type": "XMLFragment"
                     }
                   }
                 },

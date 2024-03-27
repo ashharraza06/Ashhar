@@ -35,12 +35,13 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 				onAfterBinding : function(oEvent)
 				{
 					debugger
+					var comp = null;
 					var add = this.base.getView().getContent()[0].getSections()[3].mAggregations._grid.getContent()[0].mAggregations._grid.getContent()[0].getContent().getItems()[0].mBindingInfos.items.binding;
 					add.filter(
 						new sap.ui.model.Filter({
 							path: "complaintno",
 							operator: sap.ui.model.FilterOperator.EQ,
-							value1: null
+							value1 : comp
 						})
 					);
 				}
