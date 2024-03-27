@@ -65,6 +65,10 @@ entity comments : managed {
         commtocomp : Association to one complaint
                          on commtocomp.complainno = complainno;
 }
+entity approvers{
+    key id : UUID;
+    name : String;
+}
 
 // @cds.persistance.exists
 // entity workflowhisotry {
