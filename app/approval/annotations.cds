@@ -25,7 +25,7 @@ annotate service.complains with @(
         {
             $Type : 'UI.DataFieldForAnnotation',
             Target : '@UI.Chart#days',
-            Label : 'days',
+            Label : 'Days',
         },
     ]
 );

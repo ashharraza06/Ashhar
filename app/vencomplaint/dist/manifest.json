@@ -292,7 +292,7 @@
             "config": {
                 "flexibleColumnLayout": {
                     "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
-                    "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+                    "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
                 },
                 "routerClass": "sap.f.routing.Router"
             }

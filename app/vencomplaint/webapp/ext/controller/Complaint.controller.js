@@ -32,7 +32,7 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 					sap.ui.getCore().byId("vencomplaint::vendor_poheadersObjectPage--fe::CustomSubSection::Complain-innerGrid").mAggregations.content[0].mAggregations.content.mAggregations.items[3].setText(pono);
 					// sap.ui.getCore().byId("vencomplaint::vendor_poheadersObjectPage--fe::CustomSubSection::Complain--textcomp").mAggregations._counter.setText("fff")
 				},
-				onAfterBinding : function(oEvent)
+				onAfterBinding : async function(oEvent)
 				{
 					debugger
 					var comp = null;
@@ -42,8 +42,14 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 							path: "complaintno",
 							operator: sap.ui.model.FilterOperator.EQ,
 							value1 : comp
-						})
+						})	
 					);
+					add.refresh();
+
+
+					// var path = sap.ui.getCore().byId("vencomplaint::vendor_poheadersObjectPage--fe::CustomSubSection::Attachement-innerGrid").getBindingContext();
+					// path.refresh();
+					// console.log();
 				}
 			}
 		}

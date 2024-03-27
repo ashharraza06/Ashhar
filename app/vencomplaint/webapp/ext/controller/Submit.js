@@ -129,6 +129,7 @@ sap.ui.define([
                                 .mAggregations.content
                                 .mAggregations.items[7]
                                 .setValue("");
+                                oDialog.close();
                             MessageToast.show("Submitted Succesfully");
                             window.history.go(-2);
 
@@ -169,7 +170,7 @@ sap.ui.define([
                 var data = {
                     mediaType: item.getMediaType(),
                     fileName: item.getFileName(),
-                    size: item.getFileObject().size
+                    size: item.getFileObject().size             
                 };
 
                 var settings = {
@@ -210,6 +211,7 @@ sap.ui.define([
         },
 
         onUploadCompleted: function (oEvent) {
+            debugger
             var oUploadSet = this.byId("uploadSet");
             oUploadSet.removeAllIncompleteItems();
             oUploadSet.getBinding("items").refresh();
