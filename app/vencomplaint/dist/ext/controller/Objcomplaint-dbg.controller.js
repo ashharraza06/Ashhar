@@ -5,7 +5,6 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 	'use strict';
 
 	var getdata;
-	// var g_status = 0;
 	return ControllerExtension.extend('vencomplaint.ext.controller.Objcomplaint', {
 		// this section allows to extend lifecycle hooks or hooks provided by Fiori elements
 		override: {
@@ -120,8 +119,6 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 				},
 				onAfterBinding: async function (oEvent) {
 					debugger
-					// if (!g_status) {
-						debugger;
 					var path = window.location.href;
 					var regex = /pototcomp\('([^']+)'\)/;
 					var compno = (regex.exec(path) || [])[1];
@@ -133,8 +130,6 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 							value1: compno
 						})
 					);
-					// g_status++;
-					// }
 					
 				}
 			}

@@ -35,13 +35,12 @@ sap.ui.define([
 
                 return uniqueId;
             }
-            debugger
             var oTimelineItem = new sap.suite.ui.commons.TimelineItem("thisuniqid1"+generateUniqueId(),{
                 dateTime: "12/3/34",
                 title: "demo title1",
                 userNameClickable: false,
                 // userNameClicked: "onUserNameClick",
-                // select: "onPressItems",
+                select: "onPressItems",
                 userPicture: "Photo",
                 text: 'Demo Comment1',
                 userName: "username1"
@@ -51,14 +50,23 @@ sap.ui.define([
                 title: "demo title2",
                 userNameClickable: false,
                 // userNameClicked: "onUserNameClick",
-                // select: "onPressItems",
+                select: onPressItems,
                 userPicture: "Photo",
                 text: 'Demo Comment2',
                 userName: "username2"
-            });
-            
+            });            
             cdialog.addContent(oTimelineItem);
             cdialog.addContent(oTimelineItem1);
+
+            function onPressItems(oEvent) {
+                debugger
+                // Get the clicked timeline item
+                var oClickedItem = oEvent.getSource();
+            
+                // Perform actions based on the clicked timeline item
+                console.log("Timeline item clicked:", oClickedItem.getTitle());
+                // Example: Open a popover or display more details
+            }
     
             cdialog.open(); // Open the dialog
 debugger

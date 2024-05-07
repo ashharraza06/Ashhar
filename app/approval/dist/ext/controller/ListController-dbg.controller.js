@@ -32,21 +32,21 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 					getdata = context.getValue()
 					let result = getdata.value;
 					result = JSON.parse(result);
-					debugger
-					for ( var i = 0 ; i < result.length; i++){
-						var submitdate = result[i].createdAt
-						var currdate = new Date();
-						var sub = new Date(submitdate);
-						var time = currdate.getTime() - sub.getTime();
-						var day = Math.floor(time/(1000 * 3600 * 24));
-						let d = JSON.stringify({
-							complainno: result[i].complainno,
-							days : day
-						});
-						oFunction.setParameter('data', d);
-            			oFunction.setParameter('status', JSON.stringify({ status: 'patchDays' }));
-						await oFunction.execute();
-					}
+					// debugger
+					// for ( var i = 0 ; i < result.length; i++){
+					// 	var submitdate = result[i].createdAt
+					// 	var currdate = new Date();
+					// 	var sub = new Date(submitdate);
+					// 	var time = currdate.getTime() - sub.getTime();
+					// 	var day = Math.floor(time/(1000 * 3600 * 24));
+					// 	let d = JSON.stringify({
+					// 		complainno: result[i].complainno,
+					// 		days : day
+					// 	});
+					// 	oFunction.setParameter('data', d);
+            		// 	oFunction.setParameter('status', JSON.stringify({ status: 'patchDays' }));
+					// 	await oFunction.execute();
+					// }
 				}
 			}
 		}

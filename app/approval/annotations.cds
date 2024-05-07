@@ -29,6 +29,14 @@ annotate service.complains with @(
         },
     ]
 );
+annotate MyService.complains with @(UI.HeaderInfo: {
+    Title         : {
+        $Type: 'UI.DataField',
+        Value: '',
+    },
+    TypeName      : 'Complaints',
+    TypeNamePlural: '',
+});
 annotate service.complains with @(
     UI.Facets : [
         {
@@ -48,13 +56,23 @@ annotate service.complains with @(
             },
             {
                 $Type : 'UI.DataField',
+                Value : cvencode,
+                Label : 'Vendor Code',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : cdesc,
+                Label : 'Complaint Description',
+            },
+            {
+                $Type : 'UI.DataField',
                 Value : cpannum,
                 Label : 'PAN Number',
             },
             {
                 $Type : 'UI.DataField',
-                Value : cvencode,
-                Label : 'Vendor Code',
+                Value : ccomplain_about,
+                Label : 'Complaint About',
             },
             {
                 $Type : 'UI.DataField',
@@ -62,14 +80,6 @@ annotate service.complains with @(
                 Label : 'PO Number',
             },
             {
-                $Type : 'UI.DataField',
-                Value : ccomplain_about,
-                Label : 'Complain About',
-            },{
-                $Type : 'UI.DataField',
-                Value : cdesc,
-                Label : 'Complain Description',
-            },{
                 $Type : 'UI.DataField',
                 Value : cstatus,
                 Label : 'Status',
@@ -112,3 +122,6 @@ annotate service.complains with @(
         ],
     }
 );
+annotate service.complains with {
+    cdesc @UI.MultiLineText : true
+};

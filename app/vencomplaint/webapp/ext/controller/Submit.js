@@ -324,7 +324,7 @@ sap.ui.define([
 
         _uploadContent: function (item, id) {
             debugger
-            var url = `/attachments/Files(${id})/content`
+            var url = `/attachments/files(${id})/content`
             item.setUploadUrl(url);
             var oUploadSet = this.byId("uploadSet");
             oUploadSet.setHttpRequestMethod("PUT")

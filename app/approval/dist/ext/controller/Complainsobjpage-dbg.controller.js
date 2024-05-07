@@ -36,7 +36,6 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 					oFunction.setParameter('status', JSON.stringify({ status: 'getComp' }));
 					// oFunction.setParameter('file',this.file);
 					await oFunction.execute();
-
 					// getBoundContext();
 					debugger
 					let context = oFunction.getBoundContext();

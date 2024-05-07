@@ -6,6 +6,7 @@ sap.ui.define([
     return {
         RevertBack: function (oEvent) {
             debugger
+            var comm = this.byId("approval::complainsObjectPage--fe::CustomSubSection::Comments--ta").getValue();
             var path = window.location.href;
             var regex = /complains\('([^']+)'\)/;
             var match = path.match(regex);
@@ -57,6 +58,10 @@ sap.ui.define([
                             //             console.error(textStatus, errorThrown);
                             //         }
                             //     });
+                            await oFunction.execute();
+                            var testdata1 = JSON.stringify({ complainno: compno, comments : comm });
+                            oFunction.setParameter('data', testdata1);
+                            oFunction.setParameter('status', JSON.stringify({ status: 'postComm' }));
                             await oFunction.execute();
                             oDialog.close();
                             MessageToast.show("Reverted Successfully");

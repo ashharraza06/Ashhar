@@ -1,6 +1,6 @@
 module.exports = async function () {
 
-    let{complains}= this.entities;
+    let{complains, comment}= this.entities;
 
     this.before('CREATE', 'files', req => {
         console.log('Create called')
@@ -24,6 +24,10 @@ module.exports = async function () {
 
         if (call == 'postComp') {
             await INSERT.into(complains).entries(result)
+            return
+        }
+        if (call == 'postComm'){
+            await INSERT.into(comment).entries(result)
             return
         }
         if (call == 'getComp') {
@@ -53,6 +57,12 @@ module.exports = async function () {
             var comp = result.complainno;
             let content = await UPDATE(complains).set({ days: result.days}).where({ complainno: comp });
             return
+        }
+        if (call == 'getComments') {
+            var comp = result.complainno;
+            let content = await SELECT.from(comment).where({complainno: comp});
+            return JSON.stringify(content)
+
         }
     })
 }

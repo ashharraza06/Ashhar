@@ -6,6 +6,7 @@ sap.ui.define([
     return {
         Resolve: function (oEvent) {
             debugger
+            var comm = this.byId("approval::complainsObjectPage--fe::CustomSubSection::Comments--ta").getValue();
             var path = window.location.href;
             var regex = /complains\('([^']+)'\)/;
             var match = path.match(regex);
@@ -14,7 +15,7 @@ sap.ui.define([
             // var compno = sap.ui.getCore().byId("approval::complainsObjectPage--fe::FormContainer::ComplaintDetails::FormElement::DataField::complainno::Field-content").mAggregations.contentEdit[0].mProperties.value
             // var compno = sap.ui.getCore().byId("approval::complainsObjectPage--fe::FormContainer::Complaint::FormElement::DataField::complainno::Field-content").mAggregations.contentDisplay.mProperties.text
             var status = "Resolved";
-            let testdata = JSON.stringify({complainno: compno, cstatus: status });
+            let testdata = JSON.stringify({ complainno: compno, cstatus: status });
             var url = '/odata/v4/my/complains/' + compno;
             let functionname = 'submitcomplaints';
             var oFunction = this._view.getModel().bindContext(`/${functionname}(...)`);
@@ -34,6 +35,7 @@ sap.ui.define([
                         text: "Yes",
                         press: async function () {
                             debugger
+
                             // var path = window.location.href;
                             // var regex = /complains\('([^']+)'\)/;
                             // var match = path.match(regex);
@@ -61,9 +63,15 @@ sap.ui.define([
                             //         console.error(textStatus, errorThrown);
                             //     }
                             // });
+                            await oFunction.execute();
                             
+                            var testdata1 = JSON.stringify({ complainno: compno, comments : comm });
+                            oFunction.setParameter('data', testdata1);
+                            oFunction.setParameter('status', JSON.stringify({ status: 'postComm' }));
                             await oFunction.execute();
                             oDialog.close();
+                            
+
                             MessageToast.show("Complaint has resloved Successfully");
                             location.reload();
                         }

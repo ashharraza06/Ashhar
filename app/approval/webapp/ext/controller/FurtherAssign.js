@@ -91,6 +91,7 @@ sap.ui.define([
     return {
         FurtherAssign: async function (oEvent) {
             debugger;
+            var comm = this.byId("approval::complainsObjectPage--fe::CustomSubSection::Comments--ta").getValue();
             var path = window.location.href;
             var regex = /complains\('([^']+)'\)/;
             var match = path.match(regex);
@@ -110,7 +111,7 @@ sap.ui.define([
                 items: {
                     path: "/approvers",
                     template: new sap.ui.core.Item({
-                        key: "{id}",
+                        key: "{keyy}",
                         text: "{name}" // Display the name property of each approver
                     })
                 }
@@ -120,7 +121,7 @@ sap.ui.define([
 
             // Fetch data from backend
             await $.ajax({
-                url: url1 + `approvers`, // Replace with the actual backend endpoint URL
+                url: url1 + `approvers`, 
                 type: "GET",
                 success: function (data) {
                     debugger
@@ -151,6 +152,10 @@ sap.ui.define([
                     new Button({
                         text: "Yes",
                         press: async function () {
+                            await oFunction.execute();
+                            var testdata1 = JSON.stringify({ complainno: compno, comments : comm });
+                            oFunction.setParameter('data', testdata1);
+                            oFunction.setParameter('status', JSON.stringify({ status: 'postComm' }));
                             await oFunction.execute();
                             oDialog.close();
                             MessageToast.show("The complaint has been forwarded successfully");

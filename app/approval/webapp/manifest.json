@@ -129,7 +129,19 @@
                   }
                 }
               },
-              "initialLoad": "Enabled"
+              "initialLoad": "Enabled",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "columns": {
+                    "DataField::complainno": {
+                      "width": "15vw"
+                    },
+                    "DataField::cpannum": {
+                      "width": "10vw"
+                    }
+                  }
+                }
+              }
             }
           }
         },

@@ -6,9 +6,8 @@
 }
 
 .commentbtn {
-    align-self: flex-end;
-    margin-bottom: 10px;
-    /* Optional: Add margin to create space between button and textarea */
+    align-items: end;
+    justify-content: end;
 }
 
 .commenthbox {

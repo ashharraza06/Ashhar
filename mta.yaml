@@ -7,7 +7,7 @@ modules:
   type: nodejs
   path: gen/srv
   requires:
-  - name: ash_ven-db
+  - name: cross-container-service-1
   - name: uaa_ash_ven
   provides:
   - name: srv-api
@@ -21,7 +21,11 @@ modules:
   type: hdb
   path: gen/db
   requires:
-  - name: ash_ven-db
+  - name: cross-container-service-1
+    group: SERVICE_REPLACEMENTS
+    properties:
+      key: ServiceName_1
+      service: ~{the-service-name}
   parameters:
     buildpack: nodejs_buildpack
 - name: ash_ven-app-content
@@ -93,11 +97,6 @@ modules:
     - npm run build:cf
     supported-platforms: []
 resources:
-- name: ash_ven-db
-  type: com.sap.xs.hdi-container
-  parameters:
-    service: hana
-    service-plan: hdi-shared
 - name: ash_ven-repo-host
   type: org.cloudfoundry.managed-service
   parameters:
@@ -138,6 +137,12 @@ resources:
     service: xsuaa
     service-name: ash_ven-xsuaa-service
     service-plan: application
+- name: cross-container-service-1
+  type: org.cloudfoundry.existing-service
+  parameters:
+    service-name: vendorapp-db
+  properties:
+    the-service-name: ${service-name}
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
